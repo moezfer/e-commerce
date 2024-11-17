@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+<div class="productdetail">
+<%= render @product %>
+
+<div >
+  <%= link_to "Edit this product", edit_product_path(@product),class:"btn" %> 
+  <%
+=begin%>
+ <%= link_to "Back to products", products_path,class:"btn" %> 
+<%
+=end%>
+  <%= button_to 'Add to Cart', cart_items_path(product_id: @product.id), method: :post,class:"btn" %>
+  <%= button_to "Destroy  product", @product, method: :delete,class:"btn" %>
+</div>
+
+
+
+</div>
+

@@ -1,0 +1,117 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ body {
+    font-family: 'Roboto', sans-serif; /* Replace 'Roboto' with your chosen font */
+  }
+ .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:100vh; /* For demonstration purposes */
+  }
+  .nav{
+    /* border: 1px solid black; */
+    padding:5px;
+  }
+  .formsign{
+    border: 2px solid rgb(228, 223, 223);
+    border-radius: 5px;
+    padding: 10px;
+    width:25%;
+  }
+  .forminput{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .form-label {
+ /* Ensure labels are displayed on separate lines */
+    margin-bottom: 5px; /* Spacing between label and input */
+    font-weight: bold; /* Make labels bolder for clarity */
+  }
+
+  .form-control {
+    padding: 5px;
+    border: 1px solid #ccc; /* Consistent border for inputs */
+    border-radius: 3px; /* Rounded corners for a smoother look */
+  }
+  .titlehighlight{
+    border-bottom: 3px solid #398c0d;
+  }
+  .buttonsubmit{
+    background-color: #398c0d;
+    padding: 10px;
+    color: blanchedalmond;
+    border-radius: 5px;
+    width:50%;
+  }
+  .productdetail{
+    padding:20px;
+    border-radius:5px;
+    border: 2px solid rgb(228, 223, 223);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    
+  }
+  .product-image{
+    height: 250px; /* Adjust the height of the image */
+  background-size: cover;
+  }
+  .product-details{
+    margin-bottom:5px;
+    text-decoration:none;
+  }
+  .product-details p{
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+     background-color: #398c0d;
+    color: #fff;
+  }
+  .btn-grp{
+    
+    display: flex;
+    flex-direction:row;
+
+  }
+  .products-list:{
+    display: flex;
+    flex-direction:row;
+  }
+  .productList{
+    display: flex;
+    flex-direction:column;
+    border: 2px solid rgb(228, 223, 223);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    padding:20px;
+    
+  }
+  
+

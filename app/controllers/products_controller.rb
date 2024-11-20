@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show] # Restrict actions for non-logged-in users
+  before_action :set_product, only: %i[show edit update destroy]
+  before_action :check_admin, only: %i[new create edit update destroy] # Restrict certain actions to admins
 
   # GET /products or /products.json
   def index
@@ -61,6 +63,12 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
+    end
+    def check_admin
+      unless current_user&.admin?
+        flash[:alert] = "You are not authorized to perform this action."
+        redirect_to root_path
+      end
     end
 
     # Only allow a list of trusted parameters through.

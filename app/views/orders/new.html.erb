@@ -1,6 +1,4 @@
 <h1>Checkout</h1>
-<%= @cart_items.inspect %>
-
 <% if @cart_items.present? && @cart_items.any? %>
   <ul>
     <% @cart_items.each do |item| %>

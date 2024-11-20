@@ -1,27 +1,47 @@
 <!-- app/views/cart/show.html.erb -->
-<h1>Your Cart</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Product</th>
-      <th>Quantity</th>
-      <th>Price</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @cart.cart_items.each do |item| %>
-      <tr>
-        <td><%= item.product.name %></td>
-        <td><%= item.quantity %></td>
-        <td><%= number_to_currency(item.product.price * item.quantity) %></td>
-        <td>
-          <%= button_to 'Remove', cart_item_path(item), method: :delete %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<h2>Total: <%= number_to_currency(@cart.cart_items.sum { |item| item.product.price * item.quantity }) %></h2>
-<%= link_to 'Checkout', new_order_path, class: 'btn btn-primary'  %>
+<div class="cardcontainer"> 
+<div class="minicadrecontainer">
+<h1 class="cart-title">Your Cart</h1>
 
+<table class="cart-table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cart.cart_items.each do |item| %>
+        <tr>
+          <td><%= item.product.name %></td>
+          <td><%= item.quantity %></td>
+          <td><%= number_to_currency(item.product.price * item.quantity) %></td>
+          <td>
+            <%= link_to cart_item_path(item), method: :delete, class: 'btn btn-action', data: { turbo_method: :delete } do %>
+              <i class="fa-solid fa-trash-can"></i>
+            <% end %>
+          </td>
+        </tr>
+        
+      <% end %>
+      <tr>
+        <td></td>
+        <td></td>
+        <td><h3 class="cart-total">Total: <%= number_to_currency(@cart.cart_items.sum { |item| item.product.price * item.quantity }) %></h3></td>
+        <td></td>
+        </tr>
+    </tbody>
+  </table>
+
+
+ <%= link_to 'Checkout', new_order_path, class: 'btn btn-primary checkout-button' %>
+</div>
+
+
+ 
+  
+  
+ 
+</div>

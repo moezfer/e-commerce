@@ -2,18 +2,44 @@
 
 <% content_for :title, "Products" %>
 
-<h1>Products</h1>
+<h3>Products</h3>
+<div class="productlayout">
+<% if user_signed_in? && current_user.admin? %>
+<%= link_to new_product_path,class:'addbtn' do %><i class="fa-solid fa-plus"></i> Add Product<%end%>
+<%end%>
 
-<div  class="">
+
+ <div  class="productList">
   <% @products.each do |product| %>
-    <div class="products-list">
-     <%= render product %>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
+  
+  
+  <div class="productIndex">
+    <div id="<%= dom_id product %>" class='product-details'> 
+    
+      <% if product.image? %>
+      <%= link_to  product do %>
+        <%= image_tag(product.image.url, alt: product.name, class: "product-image", size: "300x300") %>
+         <%end%>
+     <% else %>
+        <p>No Image Available</p>
+      <% end %>
+      
+      <%= render product %>
     </div>
+    
    
-  <% end %>
+    <% if user_signed_in? && current_user.admin? %>
+    <%= link_to 'Show Product', product ,class:'buybtn' %>
+
+  <%else%>
+    <%= link_to 'Add to cart', cart_items_path(product_id: product.id), method: :post,class:'buybtn',data: { turbo_method: :post }  %>
+  <%end%>
+    
+   </div>
+  
+  
+   <% end %>
 </div>
 
-<%= link_to "New product", new_product_path %>
+</div>
+

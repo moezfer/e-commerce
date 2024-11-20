@@ -172,8 +172,9 @@
     margin-top: 10px;
      background-color: #398c0d;
     color: #fff;
-    width:100px;
+    width:130px;
     text-align:center;
+    margin-left: auto;
   }
   .producttitle{
 display:flex;
@@ -384,4 +385,26 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     flex-direction:column;
     gap:10px;
    }
+   .cart-badge {
+    position: absolute; /* Position relative to the parent (icon) */
+     /* Adjust as needed */
+    width: 5px; /* Size of the circle */
+    height: 5px; /* Size of the circle */
+    border-radius: 50%; /* Makes it circular */
+    background-color: red; /* Red background color */
+    color: white; /* White text color */
+    text-align: center; /* Centers the text */
+    font-size: 12px; /* Text size */
+    font-weight: bold;
+  }
+  
+  .fa-shopping-cart {
+    position: relative; /* So the badge positions relative to it */
+  }
+  .cardcontainerrr{
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center;
+    height:70vh;
+  }
 

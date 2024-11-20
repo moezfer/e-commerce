@@ -36,7 +36,12 @@
   <%= form.label :image %>
   <%= form.file_field :image %>
   </div>
-
+<% if product.image? %>
+     
+        <%= image_tag(product.image.url, alt: product.name, class: "product-image", size: "300x300") %>
+         
+     
+      <% end %>
   <div>
     <%= form.submit %>
   </div>

@@ -13,7 +13,7 @@
           if @order.save
             # Associate the cart items with the order
             @cart.cart_items.update_all(order_id: @order.id)
-      
+            
             # Clear the cart (optional)
             @cart.cart_items.destroy_all
       

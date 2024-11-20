@@ -1,4 +1,7 @@
+<div class="cardcontainerrr">
+<div class="">
 <h1>Checkout</h1>
+
 <% if @cart_items.present? && @cart_items.any? %>
   <ul>
     <% @cart_items.each do |item| %>
@@ -12,8 +15,11 @@
 
   <%= form_with(model: @order, url: orders_path, method: :post) do |f| %>
     <%= f.hidden_field :status, value: 'pending' %>
-    <%= f.submit 'Place Order' %>
+    <%= f.submit 'Place Order',class:'buybtn' %>
   <% end %>
 <% else %>
   <p>Your cart is empty. Add some products before checking out!</p>
 <% end %>
+</div>
+</div>
+

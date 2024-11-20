@@ -1,14 +1,24 @@
+<div class="cardcontainerrr">
+<div class="">
 <h1>Order Confirmation</h1>
 
 <p>Order ID: <%= @order.id %></p>
 <p>Status: <%= @order.status %></p>
 <p>Total Price: <%= number_to_currency(@order.total_price) %></p>
-
-<h2>Items:</h2>
+<%= link_to 'Back to Home', root_path, class: 'buybtn' %>
+</div>
+</div>
+<%
+=begin%>
+ <h2>Items:</h2>
 <ul>
+<%= debug(@cart_items) %>
+
   <% @cart_items.each do |item| %>
     <li>
       <%= item.product.name %> - Quantity: <%= item.quantity %> - Price: <%= number_to_currency(item.product.price) %>
     </li>
   <% end %>
-</ul>
+</ul> 
+<%
+=end%>

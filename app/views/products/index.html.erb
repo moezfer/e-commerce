@@ -2,7 +2,7 @@
 
 <% content_for :title, "Products" %>
 
-<h3>Products</h3>
+<h3>Welcome to our Store </h3>
 <div class="productlayout">
 <% if user_signed_in? && current_user.admin? %>
 <%= link_to new_product_path,class:'addbtn' do %><i class="fa-solid fa-plus"></i> Add Product<%end%>
@@ -29,10 +29,10 @@
     
    
     <% if user_signed_in? && current_user.admin? %>
-    <%= link_to 'Show Product', product ,class:'buybtn' %>
+    <%= link_to  product ,class:'buybtn' do %><i class="fa-solid fa-eye"></i> Show Product<%end%>
 
   <%else%>
-    <%= link_to 'Add to cart', cart_items_path(product_id: product.id), method: :post,class:'buybtn',data: { turbo_method: :post }  %>
+    <%= link_to  cart_items_path(product_id: product.id), method: :post,class:'buybtn',data: { turbo_method: :post } do  %><i class="fa-solid fa-cart-shopping"></i> Add to cart<%end%>
   <%end%>
     
    </div>

@@ -38,7 +38,9 @@
     </div>
     <div>
     <% if !current_user.admin? %>
-     <%= link_to  cart_path do%><i class="fas fa-shopping-cart"></i> <span></span><%end%>
+     <%= link_to  cart_path do%><i class="fas fa-shopping-cart"></i><% if  current_cart.cart_items.any? %>
+    <span class="cart-badge"></span> 
+  <% end %><%end%>
      <%end%>
     <%= link_to  destroy_user_session_path, method: :delete, data: { turbo_method: :delete } do %>
   <i class="fas fa-sign-out-alt"></i> <span>Logout</span>

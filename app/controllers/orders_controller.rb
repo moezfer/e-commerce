@@ -13,7 +13,9 @@
           if @order.save
             # Associate the cart items with the order
             @cart.cart_items.update_all(order_id: @order.id)
-            
+            @cart.cart_items.each do |item|
+              item.product.update(last_purchase_date: Time.current)
+            end
             # Clear the cart (optional)
             @cart.cart_items.destroy_all
       

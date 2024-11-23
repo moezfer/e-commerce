@@ -20,6 +20,9 @@
     <%= f.label :password_confirmation ,class:'form-label'%><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
   </div>
+   <div class=" forminput">
+    <%= f.label :phoneNumber ,class:'form-label'%><br />
+<%= f.phone_field :phoneNumber, placeholder: "Enter your phone number", class: "form-control" %>  </div>
 
   <div class="actions forminput">
     <%= f.submit "Sign up",class: 'buttonsubmit' %>
